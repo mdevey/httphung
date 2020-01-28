@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  hung:
+    container_name: httphung
+    image: openresty/openresty:alpine
+    ports:
+      #map multiple host ports to container port 80
+      - "8080:80"
+      - "34343:80"
+      - "45454:80"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d/
+      - ./content:/content
